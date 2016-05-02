@@ -27,6 +27,7 @@ class TestMessage(TestCase):
 
         self.assertEqual(tmp._encode_field_signature(0, 1), b'\x08')
         self.assertEqual(tmp._encode_field_signature(2, 2, 7), b'\x12\x07')
+        self.assertEqual(tmp._encode_field_signature(2, 2, 0), b'\x12\x00')
         self.assertRaises(ValueError, tmp._encode_field_signature, 10, 1)
         self.assertRaises(AssertionError, tmp._encode_field_signature, 2, 2)
 

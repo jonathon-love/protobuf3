@@ -62,7 +62,7 @@ class Message(object):
         result = Message._encode_varint((field_number << 3) | field_type)
 
         if field_type == FIELD_VARIABLE_LENGTH:
-            assert field_length
+            assert field_length is not None
 
             result += Message._encode_varint(field_length)
 
